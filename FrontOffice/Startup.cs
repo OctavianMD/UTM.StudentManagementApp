@@ -1,4 +1,6 @@
 using DataLayer;
+using DataLayer.Repositories;
+using DataLayer.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +27,7 @@ namespace FrontOffice
             {
                 options.UseSqlServer(Configuration.GetConnectionString("StudentManagement"));
             });
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,7 +7,7 @@ namespace DataLayer
     {
         public DbSet<ClassRoom> ClassRoom;
         public DbSet<Course> Course;
-        public DbSet<Teacher> Teacher;
+        public DbSet<Teacher> Teacher;  
         public DbSet<Student> Student;
 
         public AppDbContext(DbContextOptions<AppDbContext> settings)
