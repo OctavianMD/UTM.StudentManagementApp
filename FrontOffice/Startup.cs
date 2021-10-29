@@ -1,4 +1,5 @@
 using System.Net.Http;
+using BusinessLayer.Helpers;
 using CommonLayer;
 using DataLayer;
 using DataLayer.Repositories;
@@ -26,8 +27,9 @@ namespace FrontOffice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IExternalProjectHttpClient, ExternalProjectHttpClient>();
-            services.AddTransient<IExternalProjectService, ExternalProjectService>();
+            services.AddScoped<IExternalProjectHttpClient, ExternalProjectHttpClient>();
+            services.AddScoped<IExternalProjectService, ExternalProjectService>();
+            services.AddScoped<StudentHelper>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             
             services.AddDbContextPool<AppDbContext>(options =>
