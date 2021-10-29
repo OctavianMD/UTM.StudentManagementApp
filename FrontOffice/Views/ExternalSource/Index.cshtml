@@ -1,0 +1,35 @@
+﻿@model ResultViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <form asp-controller="ExternalSource" asp-action="FetchStudents" method="post">
+                <div class="col text-center">
+                    <button class="btn btn-primary m-2" type="submit">Fetch students</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+            <form asp-controller="ExternalSource" asp-action="FetchTeachers" method="post">
+                <div class="col text-center">
+                    <button class="btn btn-primary m-2" type="submit">Fetch teachers</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+            <form asp-controller="ExternalSource" asp-action="FetchCourses" method="post">
+                <div class="col text-center">
+                    <button class="btn btn-primary m-2" type="submit">Fetch courses</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @if (Model.IsFetched) { 
+        <div class="row">
+            <p class="alert alert-success vw-100">@Model.Message</p>
+        </div>
+    }
+</div>
