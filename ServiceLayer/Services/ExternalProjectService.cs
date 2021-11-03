@@ -8,11 +8,18 @@ namespace ServiceLayer.Services
     {
         private readonly IExternalProjectHttpClient _externalProjectHttpClient;
         private readonly StudentHelper _studentHelper;
+        private readonly TeacherHelper _teacherHelper;
+        private readonly CourseHelper _courseHelper;
 
-        public ExternalProjectService(IExternalProjectHttpClient externalProjectHttpClient, StudentHelper studentHelper)
+        public ExternalProjectService(
+            IExternalProjectHttpClient externalProjectHttpClient,
+            StudentHelper studentHelper,
+            TeacherHelper teacherHelper, CourseHelper courseHelper)
         {
             _externalProjectHttpClient = externalProjectHttpClient;
             _studentHelper = studentHelper;
+            _teacherHelper = teacherHelper;
+            _courseHelper = courseHelper;
         }
 
         public async Task<int> FetchStudents()
@@ -24,15 +31,14 @@ namespace ServiceLayer.Services
         public async Task<int> FetchTeachers()
         {
             var result = await _externalProjectHttpClient.FetchTeachers();
-            // ToDo implement logic
-            return 0;
+            return await _teacherHelper.ProcessFetchedData(result);
+
         }
 
         public async Task<int> FetchCourses()
         {
             var result = await _externalProjectHttpClient.FetchCourses();
-            // ToDo implement logic
-            return 0;
+            return await _courseHelper.ProcessFetchedData(result);
         }
     }
 }

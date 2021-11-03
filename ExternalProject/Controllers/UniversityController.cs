@@ -92,7 +92,7 @@ namespace ExternalProject.Controllers
                     Name = "Andrei",
                     Surname = "Babălungă",
                     BirthDate = new DateTime(2000, 4,12),
-                    Idnp = "1111111111",
+                    Idnp = "1111111111111",
                     EnrollmentDate = new DateTime(2017, 09,1)
                 },
                 new StudentApi
@@ -100,7 +100,7 @@ namespace ExternalProject.Controllers
                     Name = "Oleg",
                     Surname = "Bonari",
                     BirthDate = new DateTime(2000, 1,12),
-                    Idnp = "22222222222",
+                    Idnp = "2222222222211",
                     EnrollmentDate = new DateTime(2017, 09,1)
                 },
                 new StudentApi
@@ -108,7 +108,7 @@ namespace ExternalProject.Controllers
                     Name = "Cătălina",
                     Surname = "Bucur",
                     BirthDate = new DateTime(2000, 3,12),
-                    Idnp = "3333333333",
+                    Idnp = "3333333333111",
                     EnrollmentDate = new DateTime(2017, 09,1)
                 },
                 new StudentApi
@@ -116,7 +116,7 @@ namespace ExternalProject.Controllers
                     Name = "Mihai",
                     Surname = "Ciobanu",
                     BirthDate = new DateTime(2000, 4,1),
-                    Idnp = "44444444444",
+                    Idnp = "4444444444411",
                     EnrollmentDate = new DateTime(2017, 09,1)
                 },
                 new StudentApi
@@ -124,7 +124,7 @@ namespace ExternalProject.Controllers
                     Name = "Cristian",
                     Surname = "Conea",
                     BirthDate = new DateTime(2000, 4,22),
-                    Idnp = "555555555",
+                    Idnp = "5555555551111",
                     EnrollmentDate = new DateTime(2017, 09,1)
                 },
                 new StudentApi
@@ -132,14 +132,14 @@ namespace ExternalProject.Controllers
                     Name = "Alexandru",
                     Surname = "Dutca",
                     BirthDate = new DateTime(2000, 8,12),
-                    Idnp = "66666666666",
+                    Idnp = "6666666666611",
                     EnrollmentDate = new DateTime(2017, 09,1)
                 },new StudentApi
                 {
                     Name = "Maxim",
                     Surname = "Gușciuc",
                     BirthDate = new DateTime(2000, 12,12),
-                    Idnp = "7777777777",
+                    Idnp = "7777777777111",
                     EnrollmentDate = new DateTime(2017, 09,1)
                 },
                 new StudentApi
@@ -147,7 +147,7 @@ namespace ExternalProject.Controllers
                     Name = "Nicolae",
                     Surname = "Istrate",
                     BirthDate = new DateTime(2000, 7,12),
-                    Idnp = "888888888888",
+                    Idnp = "8888888888881",
                     EnrollmentDate = new DateTime(2017, 09,1)
                 },
                 new StudentApi
@@ -155,7 +155,7 @@ namespace ExternalProject.Controllers
                     Name = "Valeriu",
                     Surname = "Juc",
                     BirthDate = new DateTime(2000, 4,7),
-                    Idnp = "999999999",
+                    Idnp = "9999999991111",
                     EnrollmentDate = new DateTime(2017, 09,1)
                 },
                 new StudentApi
@@ -163,7 +163,7 @@ namespace ExternalProject.Controllers
                     Name = "Veaceslav",
                     Surname = "Lazari",
                     BirthDate = new DateTime(2000, 8,1),
-                    Idnp = "00000000000",
+                    Idnp = "0000000000011",
                     EnrollmentDate = new DateTime(2017, 09,1)
                 }
             };

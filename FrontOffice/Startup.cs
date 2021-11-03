@@ -30,6 +30,8 @@ namespace FrontOffice
             services.AddScoped<IExternalProjectHttpClient, ExternalProjectHttpClient>();
             services.AddScoped<IExternalProjectService, ExternalProjectService>();
             services.AddScoped<StudentHelper>();
+            services.AddScoped<TeacherHelper>();
+            services.AddScoped<CourseHelper>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             
             services.AddDbContextPool<AppDbContext>(options =>
