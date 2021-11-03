@@ -1,0 +1,32 @@
+﻿@using CommonLayer.ViewModels
+@model List<CourseViewModel>
+
+<div class="container">
+    <h2>Course Table</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>@nameof(CourseViewModel.Name)</th>
+            <th>@nameof(CourseViewModel.Credits)</th>
+        </tr>
+        </thead>
+        <tbody>
+            @if (Model == null)
+            {
+                <tr>
+                    <td colspan="2">No data</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var course in Model)
+                {
+                    <tr>
+                        <td>@course.Name</td>
+                        <td>@course.Credits</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
