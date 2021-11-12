@@ -19,6 +19,48 @@ namespace BusinessLayer.Helpers
             _courseRepository = courseRepository;
         }
 
+        public async Task<CourseViewModel> Get(int id)
+        {
+            var entity = await _courseRepository.Get(x => x.Id == id);
+            return entity?.ToViewModel();
+        }
+
+        public async Task<List<CourseViewModel>> GetAll()
+        {
+            var entities = await _courseRepository.GetAll(x=>true);
+            return entities?.ToViewModel() ?? new List<CourseViewModel>();
+        }
+
+        public async Task<Course> Create(CourseViewModel model)
+        {
+            if (model.IsValid())
+            {
+                return await _courseRepository.Add(model.ToEntity());
+            }
+            return null;
+        }
+
+        public async Task<bool> Update(CourseViewModel model)
+        {
+            if (model.IsValid())
+            {
+                await _courseRepository.Update(model.ToEntity());
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task Remove(int id)
+        {
+            var entity = await _courseRepository.Get(x => x.Id == id);
+            if (entity != null)
+            {
+                await _courseRepository.Remove(entity);
+
+            }
+        }
+
         public async Task<int> ProcessFetchedData(string result)
         {
             var counter = 0;
@@ -32,7 +74,7 @@ namespace BusinessLayer.Helpers
 
             foreach (var course in courses)
             {
-                if (course.IsValid() && !await _courseRepository.Any(x => 
+                if (course.IsValid() && !await _courseRepository.Any(x =>
                         x.Name == course.Name && x.Name == course.Name))
                 {
                     await _courseRepository.Add(course.ToEntity());
@@ -41,12 +83,6 @@ namespace BusinessLayer.Helpers
             }
 
             return counter;
-        }
-
-        public async Task<List<CourseViewModel>> GetAll()
-        {
-            var entities = await _courseRepository.GetAll(x=>true);
-            return entities.ToViewModel();
         }
     }
 }

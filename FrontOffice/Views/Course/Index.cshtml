@@ -3,30 +3,62 @@
 
 <div class="container">
     <h2>Course Table</h2>
+    @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+    {
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <p class="alert alert-danger">@Html.Raw(ViewBag.ErrorMessage)</p>
+            </div>
+        </div>
+    }
+
+    <div class="row mb-2">
+        <div class="col-sm-4">
+            <a class="btn btn-primary btn-block" href="@Url.Action("Add")">Add new course</a>
+        </div>
+    </div>
+
     <table class="table table-bordered">
         <thead>
         <tr>
             <th>@nameof(CourseViewModel.Name)</th>
             <th>@nameof(CourseViewModel.Credits)</th>
+            <th>Edit</th>
+            <th>Remove</th>
         </tr>
         </thead>
         <tbody>
-            @if (Model == null)
+        @if (Model == null || Model.Count < 1)
+        {
+            <tr>
+                <td colspan="4">No data</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var course in Model)
             {
                 <tr>
-                    <td colspan="2">No data</td>
+                    <td>@course.Name</td>
+                    <td>@course.Credits</td>
+                    <td class="text-center">
+                        <a class="btn btn-warning btn-block" href="@Url.Action("Edit")?id=@course.Id"><i class="bi bi-file-earmark-binary"></i></a>
+                    </td>
+                    <td class="text-center"> 
+                        <a class="btn btn-danger btn-block" href="@Url.Action("Delete")?id=@course.Id"><i class="bi bi-trash-fill"></i></a>
+                    </td>
                 </tr>
             }
-            else
-            {
-                @foreach (var course in Model)
-                {
-                    <tr>
-                        <td>@course.Name</td>
-                        <td>@course.Credits</td>
-                    </tr>
-                }
-            }
+        }
         </tbody>
     </table>
+
 </div>
+
+@section Scripts
+{
+    <script>
+
+
+    </script>
+}

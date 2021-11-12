@@ -17,6 +17,19 @@ namespace BusinessLayer.Mapper
                 ClassRooms = new List<ClassRoom>()
             };
         }
+        public static Course ToEntity(this CourseViewModel course)
+        {
+            var entity = new Course
+            {
+                Name = course.Name,
+                CreditsAmount = course.Credits,
+                ClassRooms = new List<ClassRoom>()
+            };
+            if (course.Id > 0)
+                entity.Id = course.Id;
+
+            return entity;
+        }
 
         public static List<CourseViewModel> ToViewModel(this IList<Course> courses)
         {
@@ -26,6 +39,16 @@ namespace BusinessLayer.Mapper
                 Name = x.Name,
                 Credits = x.CreditsAmount,
             }).ToList();
+        }
+
+        public static CourseViewModel ToViewModel(this Course courses)
+        {
+            return new CourseViewModel
+            {
+                Id = courses.Id,
+                Name = courses.Name,
+                Credits = courses.CreditsAmount,
+            };
         }
     }
 }

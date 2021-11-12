@@ -50,7 +50,7 @@ namespace FrontOffice.Configurations
 
             #region App Services
 
-            services.AddScoped<CourseService>();
+            services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<IExternalProjectHttpClient, ExternalProjectHttpClient>();
             services.AddScoped<IExternalProjectService, ExternalProjectService>();
 

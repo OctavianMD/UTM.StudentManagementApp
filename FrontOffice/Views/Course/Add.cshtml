@@ -1,0 +1,19 @@
+﻿@model CommonLayer.ViewModels.CourseViewModel
+
+<div class="container">
+    <div class="col-sm-6">
+        <form method="post" asp-action="Add">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input type="text" class="form-control" asp-for="Name">
+            </div>
+            <div class="form-group">
+                <label asp-for="Credits"></label>
+                <input type="number" class="form-control" asp-for="Credits">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
